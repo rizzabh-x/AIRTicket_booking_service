@@ -8,7 +8,7 @@ const db = require('./models/index')
 
 const startAndSetupServer = () => {
 
-    app.use(bodyParser.json);
+    app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}))
 
     app.use('/api', apiRoutes);
@@ -16,7 +16,7 @@ const startAndSetupServer = () => {
     app.listen(PORT, () => {
         console.log(`server started on PORT:  ${PORT}`);
 
-        if(!process.env.DB_SYNC){
+        if(process.env.DB_SYNC){
             db.sequelize.sync({alter: true});
         }
     })
