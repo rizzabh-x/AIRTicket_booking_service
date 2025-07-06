@@ -20,6 +20,7 @@ class BookingService{
                 throw new ServiceError('Something went wrong in the booking process', 'Insufficient seats in the flight');
             }
             const totalCost = data.noOfSeats * priceOfFlight;
+            // Here we are just updating the data using spread operator 
             const bookingPayload = {...data, totalCost};
             const booking = await this.bookingrepository.create(bookingPayload);
             const  updateFlightRequestURL = `${FLIGHT_SERVICE_PATH}/api/v1/flights/${booking.flightId}`;
