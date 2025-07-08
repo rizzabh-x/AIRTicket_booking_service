@@ -1,7 +1,7 @@
 const axios = require('axios')
 const {BookingRepository} = require('../repository/index');
 
-const {FLIGHT_SERVICE_PATH} = require('../config/serverConfiig');
+const {FLIGHT_SERVICE_PATH} = require('../config/serverConfig');
 const { ServiceError } = require('../utils/errors');
 
 class BookingService{
